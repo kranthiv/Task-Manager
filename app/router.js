@@ -8,7 +8,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('dashboard');
-  this.route('task');
+  this.route('task', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

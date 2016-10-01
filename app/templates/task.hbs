@@ -1,53 +1,8 @@
 <div class="ui grid">
   <div class="four wide column">
   </div>
-  <div class="eight wide column">
-
-    <div class="ui fluid card">
-      <div class="content">
-        <div class="header">Tasks</div>
-      </div>
-      <div class="content">
-        <div class="ui  feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <table class="ui fixed single line celled table">
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Status</th>
-                      <th>
-                        Effort
-                      </th>
-                      <th>Created Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each model.tasks as |task|}}
-                    <tr>
-                      <td>{{#link-to tagName='a'}}
-                        {{task.title}}
-                        {{/link-to}}
-                      </td>
-                      <td>{{if task.isCompleted "done" "pending"}}</td>
-                      <td>
-                        {{task.formatedEffort}}
-                      </td>
-                      <td>{{task.createdDate}}</td>
-                    </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="extra content">
-        <button class="ui button">Add new task</button>
-      </div>
-    </div>
+  <div class="eight wide column"> 
+    {{outlet}}
   </div>
   <div class="four wide column">
   </div>
