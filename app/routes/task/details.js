@@ -24,6 +24,9 @@ export default Ember.Route.extend({
     },
     createEffort() {
       this.transitionTo('task.effort-new',get(this,'taskDetails.id'));
+    },
+    back(){
+      this.transitionTo('task');
     }
   }
 
