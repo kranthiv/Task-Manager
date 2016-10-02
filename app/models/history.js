@@ -1,8 +1,9 @@
 import Ember from 'ember';
 const{get,set,computed,observer,run}=Ember;
-import timeUtil from 'task-manager/utils/time-util';
+import timeUtils from 'task-manager/utils/time-util';
 export default Ember.Object.extend({
     id:null,
+    taskId:null,
     createdDate:null,
     modifiedDate:null,
     duration:null,
@@ -19,7 +20,7 @@ export default Ember.Object.extend({
         });
     }),
     humanizeEffort:computed('effort',function () {
-      let formatedTime = timeUtil(get(this,'effort'));
+      let formatedTime = timeUtils.timeUtil(get(this,'effort'));
       if(Ember.isNone(formatedTime))
       {
         return '';

@@ -1,12 +1,18 @@
 <form class="ui form" {{action 'createTask' on='submit'}}>
+  <h4 class="ui dividing header">Title</h4>
   <div class="field">
-    <label>Title</label>
-    {{input type="text" name="task-title" placeholder="Please enter the task" value=currTask.title}}
+    {{input type="text" required=true autofocus=true name="task-title" placeholder="Please enter the task" value=currTask.title}}
   </div>
-  <div class="field">
-    <lable>Effort</lable>
-    {{input type="text" name="task-effort-hours" value=currTask.hours}}
-    {{input type="text" name="task-effort-minutes" value=currTask.minutes}}
+  <h4 class="ui dividing header">Effort</h4>
+  <div class="two fields">
+      <div class="field">
+        <label>Hours</label>
+    {{input type="number" name="task-effort-hours" placeholder="Please enter hours" value=currDuration.hours}}
+    </div>
+    <div class="field">
+      <label>Minutes</label>
+    {{input type="number" name="task-effort-minutes" placeholder="Please enter minutes" value=currDuration.minutes}}
+    </div>
   </div>
   <div class="field">
     <div class="ui checkbox">
@@ -14,6 +20,6 @@
       <label>Task Completed?</label>
     </div>
   </div>
-  <button class="ui button">Create</button>
+  <button class="ui button primary {{if isLoading "loading"}}">Create</button>
 </form>
  

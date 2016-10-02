@@ -1,8 +1,8 @@
 <div class="ui fluid card">
   <div class="content">
-    <div class="header">{{model.task.title}}</div>
+    <div class="header">{{model.title}}</div>
     <div class="ui checkbox">
-      <input type="checkbox" name="task-isCompleted" checked={{model.task.isCompleted}}
+      <input type="checkbox" name="task-isCompleted" checked={{model.isCompleted}}
        {{action "markTask" on="change"}}>
       <label>Completed?</label>
     </div>
@@ -20,7 +20,7 @@
                 </tr>
               </thead>
               <tbody>
-                {{#each model.task.history as |hist|}}
+                {{#each model.history as |hist|}}
                   <tr>
                     <td>
                       {{hist.comment}}
@@ -36,6 +36,6 @@
     </div>
   </div>
   <div class="extra content">
-    <button class="ui button" {{action 'createTask'}}>Add Effort</button>
+    <button class="ui button" {{action 'createEffort'}}>Add Effort</button>
   </div>
 </div>

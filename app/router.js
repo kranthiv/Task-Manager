@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('task', function() {
     this.route('new');
     this.route('details',{path:"/:id"});
+    this.route('effort-new',{path:"/:task_id"});
   });
 });
 

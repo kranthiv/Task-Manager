@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import task from '../models/task'
+import task from '../models/task';
 import history from '../models/history';
 import duration from '../models/duration';
 const {
@@ -18,23 +18,6 @@ export default {
         set(_task, 'title', t.title);
         set(_task, 'createdDate', t.createdDate);
         set(_task, 'isCompleted', t.isCompleted);
-        let _history = Ember.A();
-        t.history.forEach((h) => {
-          let _h = history.create();
-          set(_h, 'id', h.id);
-          set(_h, 'createdDate', h.createdDate);
-          set(_h, 'modifiedDate', h.modifiedDate);
-          set(_h,'comment',h.comment);
-
-          let _duration = duration.create();
-          set(_duration, 'hours', h.duration.hours);
-          set(_duration, 'minutes', h.duration.minutes);
-
-          set(_h, 'duration', _duration);
-          _history.pushObject(_h);
-        });
-        set(_task, 'history', _history);
-
         _tasks.pushObject(_task);
       });
       return _tasks;
@@ -48,22 +31,30 @@ export default {
       set(_task, 'title', t.title);
       set(_task, 'createdDate', t.createdDate);
       set(_task, 'isCompleted', t.isCompleted);
+      return _task;
+    },
+    convertHistoryToModel(histories){
       let _history = Ember.A();
-      t.history.forEach((h) => {
+      if(Ember.isNone(histories)){
+        return _history;
+      }
+      histories.forEach((h) => {
         let _h = history.create();
         set(_h, 'id', h.id);
         set(_h, 'createdDate', h.createdDate);
         set(_h, 'modifiedDate', h.modifiedDate);
         set(_h,'comment',h.comment);
+        set(h,'taskId',h.taskId);
         
         let _duration = duration.create();
-        set(_duration, 'hours', h.duration.hours);
-        set(_duration, 'minutes', h.duration.minutes);
+        let _hours = Ember.isNone(h.hours)?0:parseInt(h.hours);
+        let _mins = Ember.isNone(h.minutes)?0:parseInt(h.minutes);
+        set(_duration, 'hours', _hours);
+        set(_duration, 'minutes',_mins);
 
         set(_h, 'duration', _duration);
         _history.pushObject(_h);
       });
-      set(_task, 'history', _history);
-      return _task;
+      return _history;
     }
 }

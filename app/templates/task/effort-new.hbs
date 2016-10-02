@@ -1,0 +1,19 @@
+<form class="ui form" {{action 'addEffort' on='submit'}}>
+  <h4 class="ui dividing header">Comment</h4>
+  <div class="field">
+    {{input type="text" required=true autofocus=true name="task-title" placeholder="Please enter the comment" value=newHistory.comment}}
+  </div>
+  <h4 class="ui dividing header">Effort</h4>
+  <div class="two fields">
+      <div class="field">
+        <label>Hours</label>
+    {{input type="number" name="task-effort-hours" placeholder="Please enter hours" value=newHistory.duration.hours}}
+    </div>
+    <div class="field">
+      <label>Minutes</label>
+    {{input type="number" name="task-effort-minutes" placeholder="Please enter minutes" value=newHistory.duration.minutes}}
+    </div>
+  </div>
+  <button class="ui button primary {{if isLoading "loading"}}">Create</button>
+</form>
+ 

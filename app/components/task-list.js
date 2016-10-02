@@ -3,8 +3,8 @@ const{get} = Ember;
 
 export default Ember.Component.extend({
     actions:{
-        createTask(task){
-            this.getAttr('createTask')(task);
+        createTask(){
+            this.getAttr('createTask')();
         },
         taskDetails(task){
             this.getAttr('taskDetails')(task);

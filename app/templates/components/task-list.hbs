@@ -12,9 +12,6 @@
                     <tr>
                       <th>Title</th>
                       <th>Status</th>
-                      <th>
-                        Effort
-                      </th>
                       <th>Created Date</th>
                     </tr>
                   </thead>
@@ -27,9 +24,6 @@
                         </a>
                       </td>
                       <td>{{if task.isCompleted "done" "pending"}}</td>
-                      <td>
-                        {{task.formatedEffort}}
-                      </td>
                       <td>{{task.createdDate}}</td>
                     </tr>
                     {{/each}}
