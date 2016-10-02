@@ -1,3 +1,5 @@
+import Ember from 'ember';
+const{get}=Ember;
 export default {
     timeUtil(mins) {
         var secs = mins * 60;
@@ -17,7 +19,14 @@ export default {
         return obj;
     },
     getTodayDate(){
-        return moment().format('DD-MM-YYYY');
+        return moment().format('MM-DD-YYYY');
+    },
+    getTasksBetweenDates(tasks){
+        let currDate = this.getTodayDate();
+        let weekBackdate = moment().subtract(7,'days').format('MM-DD-YYYY');
+        return tasks.filter((item)=>{
+          return moment(get(item,'createdDate'),'MM-DD-YYYY').isBetween(weekBackdate,currDate,null, '[]');
+        });
     }
 
 }

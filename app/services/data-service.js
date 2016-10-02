@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import taskUtils from 'task-manager/utils/task-util';
+import taskUtils from '../utils/task-util';
+import timeUtils from '../utils/time-util';
 const {
   set,
   get,
@@ -17,7 +18,8 @@ export default Ember.Service.extend({
     let that = this;
     let tasksPromise = function() {
       return Ember.$.ajax(get(that, 'url')).then((data) => {
-        return taskUtils.convertTasksToModel(data);
+        let tasks= taskUtils.convertTasksToModel(data);
+        return timeUtils.getTasksBetweenDates(tasks);
       });
     };
     return RSVP.hash({

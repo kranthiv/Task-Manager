@@ -10,37 +10,43 @@
       "id": 2,
       "title": "task two",
       "createdDate": "10-01-2016",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
-      "createdDate": "03-10-2016",
+      "createdDate": "10-03-2016",
       "title": "task four",
       "isCompleted": true,
       "id": 3
     },
     {
-      "createdDate": "03-10-2016",
+      "createdDate": "10-01-2016",
       "title": "task four",
       "isCompleted": false,
       "id": 4
     },
     {
-      "createdDate": "03-10-2016",
+      "createdDate": "09-10-2016",
       "title": "task five",
       "isCompleted": false,
       "id": 5
     },
     {
-      "createdDate": "03-10-2016",
+      "createdDate": "09-10-2016",
       "title": "task six",
       "isCompleted": false,
       "id": 6
     },
     {
-      "createdDate": "03-10-2016",
+      "createdDate": "09-10-2016",
       "title": "task seven",
       "isCompleted": false,
       "id": 7
+    },
+    {
+      "createdDate": "09-10-2016",
+      "title": "task 8",
+      "isCompleted": false,
+      "id": 8
     }
   ],
   "history": [
@@ -94,6 +100,22 @@
       "hours": 41,
       "minutes": 1,
       "id": 6
+    },
+    {
+      "comment": "test task",
+      "createdDate": "03-10-2016",
+      "taskId": 4,
+      "hours": 10,
+      "minutes": 1,
+      "id": 7
+    },
+    {
+      "comment": "task 8",
+      "createdDate": "03-10-2016",
+      "taskId": 8,
+      "hours": 2,
+      "minutes": 1,
+      "id": 8
     }
   ]
 }

@@ -12,7 +12,9 @@ export default Ember.Controller.extend({
                     let _history = get(task,'history')[0];
                     set(_history,'comment',get(_task,'title'));
                     set(_history,'taskId',get(_task,'id'));
-                    return get(that,'dataService').createHistory(_history);
+                    get(that,'dataService').createHistory(_history).then(()=>{
+                        that.transitionToRoute('task');
+                    });
                 })
             }
         }

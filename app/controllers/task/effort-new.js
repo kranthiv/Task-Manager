@@ -11,7 +11,11 @@ export default Ember.Controller.extend({
     actions:{
         addEffort(){
             set(this,'newHistory.createdDate',timeUtils.getTodayDate());
-            get(this,'dataService').createHistory(get(this,'newHistory'));
+            let response = get(this,'dataService').createHistory(get(this,'newHistory'));
+            let that = this;
+            response.then((data)=>{
+                this.transitionToRoute('task.details',get(that,'newHistory.taskId'));
+            })
         }
     }
 });
