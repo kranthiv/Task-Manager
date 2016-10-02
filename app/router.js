@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('dashboard');
   this.route('task', function() {
     this.route('new');
+    this.route('details',{path:"/:id"});
   });
 });
 

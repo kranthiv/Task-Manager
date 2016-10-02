@@ -1,21 +1,50 @@
 {
-    "tasks":[
+  "tasks": [
+    {
+      "id": 1,
+      "title": "task one",
+      "createdDate": "10-01-2016",
+      "isCompleted": false,
+      "history": [
         {
-            "id":1,
-            "title":"task one",
-            "createdDate":"10-01-2016",
-            "isCompleted":false,
-            "history":[
-                {
-                    "id":1,
-                    "duration":{
-                        "hours":1,
-                        "minutes":1
-                    },
-                    "createdDate":"10-01-2016",
-                    "modifiedDate":null
-                }
-            ]
+          "id": 1,
+          "comment": "inital task",
+          "duration": {
+            "hours": 2,
+            "minutes": 35
+          },
+          "createdDate": "09-01-2016",
+          "modifiedDate": null
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "title": "task two",
+      "createdDate": "09-01-2016",
+      "isCompleted": true,
+      "history": [
+        {
+          "id": 1,
+          "comment": "inital task",
+          "duration": {
+            "hours": 2,
+            "minutes": 35
+          },
+          "createdDate": "09-01-2016",
+          "modifiedDate": null
+        },
+        {
+          "id": 2,
+          "comment": "second update",
+          "duration": {
+            "hours": 0,
+            "minutes": 30
+          },
+          "createdDate": "10-02-2016",
+          "modifiedDate": null
+        }
+      ]
+    }
+  ]
 }

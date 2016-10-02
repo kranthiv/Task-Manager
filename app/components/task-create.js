@@ -12,7 +12,9 @@ export default Ember.Component.extend({
     },
     actions:{
         createTask(){
-            this.get('onCreate')(get(this,'currTask'));
+            Ember.Logger.info("hours",get(this,'currTask.hours'));
+            Ember.Logger.info("minutes",get(this,'currTask.minutes'));
+            //this.get('onCreate')(get(this,'currTask'));
         }
     }
 

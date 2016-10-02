@@ -26,5 +26,6 @@ module.exports = function (defaults) {
 
   app.import(app.bowerDirectory + '/semantic/dist/semantic.min.js');
   app.import(app.bowerDirectory + '/semantic/dist/semantic.min.css');
+
   return app.toTree();
 };

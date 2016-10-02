@@ -1,7 +1,12 @@
 <form class="ui form" {{action 'createTask' on='submit'}}>
   <div class="field">
     <label>Title</label>
-    {{input type="text" name="first-name" placeholder="First Name" value=currTask.title}}
+    {{input type="text" name="task-title" placeholder="Please enter the task" value=currTask.title}}
+  </div>
+  <div class="field">
+    <lable>Effort</lable>
+    {{input type="text" name="task-effort-hours" value=currTask.hours}}
+    {{input type="text" name="task-effort-minutes" value=currTask.minutes}}
   </div>
   <div class="field">
     <div class="ui checkbox">

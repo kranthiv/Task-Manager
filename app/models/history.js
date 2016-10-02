@@ -1,10 +1,12 @@
 import Ember from 'ember';
 const{get,set,computed,observer,run}=Ember;
+import timeUtil from 'task-manager/utils/time-util';
 export default Ember.Object.extend({
     id:null,
     createdDate:null,
     modifiedDate:null,
     duration:null,
+    comment:null,
     init(){
         this._super(...arguments);
         get(this,'effortDidChanged');
@@ -12,8 +14,18 @@ export default Ember.Object.extend({
     effort:null,
     effortDidChanged:observer('duration.{hours,minutes}',function(){
         run.once(this,()=>{
-            let total =get(this,'duration.hours')*60 + get(this,'duration.minutes'); 
+            let total =get(this,'duration.hours')*60 + get(this,'duration.minutes');
             set(this,'effort',total);
         });
     }),
+    humanizeEffort:computed('effort',function () {
+      let formatedTime = timeUtil(get(this,'effort'));
+      if(Ember.isNone(formatedTime))
+      {
+        return '';
+      }
+      let hoursDef= formatedTime.h !== 1?'hours':'hour';
+      let minutesDef = formatedTime.m !== 1?'minutes':'minute';
+      return `${formatedTime.h} ${hoursDef} ${formatedTime.m} ${minutesDef}`;
+    })
 });
