@@ -24,3 +24,19 @@
     </div>
   </div>
 </div>
+ <div class="ui horizontal divider">
+    Efforts for last one week
+  </div>
+
+<div class="ui {{sizeOfStatics}} statistics">
+{{#each effortsPerWeek as |effortPerDay|}}
+  <div class="statistic">
+    <div class="value">
+        {{effortPerDay.date}}
+    </div>
+    <div class="label">
+      {{effortPerDay.formatedEffort}}
+    </div>
+  </div>
+{{/each}}
+</div>

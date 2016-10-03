@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "task one",
-      "createdDate": "10-01-2016",
+      "createdDate": "09-29-2016",
       "isCompleted": true
     },
     {
@@ -32,7 +32,7 @@
       "taskId": 1,
       "hours": 2,
       "minutes": 35,
-      "createdDate": "09-01-2016",
+      "createdDate": "09-29-2016",
       "modifiedDate": null
     },
     {

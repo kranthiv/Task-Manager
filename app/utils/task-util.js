@@ -67,7 +67,7 @@ export default {
         set(_h, 'createdDate', h.createdDate);
         set(_h, 'modifiedDate', h.modifiedDate);
         set(_h,'comment',h.comment);
-        set(h,'taskId',h.taskId);
+        set(_h,'taskId',h.taskId);
         
         let _duration = duration.create();
         let _hours = Ember.isNone(h.hours)?0:parseInt(h.hours);

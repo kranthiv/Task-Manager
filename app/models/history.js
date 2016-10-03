@@ -12,7 +12,7 @@ export default Ember.Object.extend({
         this._super(...arguments);
         get(this,'effortDidChanged');
     },
-    effort:null,
+    effort:0,
     effortDidChanged:observer('duration.{hours,minutes}',function(){
         run.once(this,()=>{
             let total =get(this,'duration.hours')*60 + get(this,'duration.minutes');

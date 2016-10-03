@@ -25,12 +25,37 @@ export default Ember.Service.extend({
     let that = this;
     let tasksPromise = function() {
       return Ember.$.ajax(get(that, 'url')).then((data) => {
-        let tasks= taskUtils.convertTasksToModel(data);
-        return timeUtils.getTasksBetweenDates(tasks);
+        return taskUtils.convertTasksToModel(data);
+        //return timeUtils.getTasksBetweenDates(tasks);
       });
     };
     return RSVP.hash({
       tasks: tasksPromise()
+    });
+  },
+  getTasksWithDetails(){
+    let that = this;
+    let taskPromise = function() {
+      return Ember.$.ajax(get(that,'url')).then((data) => {
+        return taskUtils.convertTasksToModel(data);
+      });
+    };
+    let historyPromise = function(){
+      return Ember.$.ajax(get(that,'historyUrl')).then((data) => {
+        return taskUtils.convertHistoryToModel(data);
+      });
+    };
+    let promiseToResolve = {
+      task:taskPromise(),
+      history:historyPromise()
+    };
+    return RSVP.hash(promiseToResolve).then((data)=>{
+      let tasks = timeUtils.getTasksBetweenDates(data.task);
+      tasks.forEach((task)=>{
+        let _history = data.history.filterBy('taskId',get(task,'id'));
+        set(task,'history',_history);
+      });
+      return tasks;
     });
   },
 

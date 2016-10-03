@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import timeUtil from 'task-manager/utils/time-util';
+import timeUtil from '../utils/time-util';
 const{get,computed}=Ember;
 
 export default Ember.Object.extend({
@@ -19,6 +19,5 @@ export default Ember.Object.extend({
       let hoursDef= formatedTime.h !== 1?'hours':'hour';
       let minutesDef = formatedTime.m !== 1?'minutes':'minute';
       return `${formatedTime.h} ${hoursDef} ${formatedTime.m} ${minutesDef}`;
-
     })
 });
