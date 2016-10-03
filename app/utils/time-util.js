@@ -52,7 +52,7 @@ export default {
         /*ignore jslint end*/
         return tasks.filter((item)=>{
             /*ignore jslint start*/
-          return moment(get(item,'createdDate'),'MM-DD-YYYY').isBetween(weekBackdate,currDate,null, '[]');
+          return moment(get(item,'createdDate'),'MM-DD-YYYY').isBetween(weekBackdate,currDate,null, '(]');
           /*ignore jslint end*/
         });
     }
