@@ -7,6 +7,13 @@ const {
 } = Ember;
 
 export default {
+  /**
+   * This convert the tasks json object to ember task models
+   * Ideally ember data could be used inorder to avoid This
+   * @method convertTasksToModel
+   * @returns {array of task}
+   * @public
+   */
   convertTasksToModel(tasks) {
       if (Ember.isNone(tasks)) {
         return Ember.A();
@@ -22,6 +29,14 @@ export default {
       });
       return _tasks;
     },
+
+   /**
+   * This convert the task json object to ember task model
+   * Ideally ember data could be used inorder to avoid This
+   * @method convertTaskToModel
+   * @returns {task}
+   * @public
+   */
     convertTaskToModel(t){
       let _task = task.create();
       if(Ember.isNone(t)){
@@ -33,6 +48,14 @@ export default {
       set(_task, 'isCompleted', t.isCompleted);
       return _task;
     },
+
+    /**
+   * This convert the history json object to ember history models
+   * Ideally ember data could be used inorder to avoid This
+   * @method convertHistoryToModel
+   * @returns {array of history}
+   * @public
+   */
     convertHistoryToModel(histories){
       let _history = Ember.A();
       if(Ember.isNone(histories)){

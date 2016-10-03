@@ -14,6 +14,13 @@ export default Ember.Service.extend({
     set(this, 'url', "http://localhost:3000/tasks");
     set(this,'historyUrl',"http://localhost:3000/history");
   },
+  
+    /**
+     * This is used to get all tasks from backend
+     * @method getTasks
+     * @returns {Task[]} Array of tasks
+     * @public 
+     */
   getTasks() {
     let that = this;
     let tasksPromise = function() {
@@ -26,6 +33,15 @@ export default Ember.Service.extend({
       tasks: tasksPromise()
     });
   },
+
+
+    /**
+     * This is used to get task based on its Id
+     * @method getTaskById
+     * @param {Task} task 
+     * @returns {task}
+     * @public 
+     */
   getTaskById(id) {
     let that = this;
     let taskPromise = function() {
@@ -47,6 +63,15 @@ export default Ember.Service.extend({
       return data.task;
     });
   },
+
+  /**
+     * This is used to mark the status of the task to completed or pending
+     * @method toggleTaskStatus
+     * @param {Int} id 
+     * @param {Boolean} status
+     * @returns {task}
+     * @public 
+     */
   toggleTaskStatus(id, status) {
     let that = this;
     let tasksPromise = function() {
@@ -63,6 +88,14 @@ export default Ember.Service.extend({
       task: tasksPromise()
     });
   },
+
+  /**
+     * This is used to mark the create new task
+     * @method createTask
+     * @param {task} task 
+     * @returns {task} 
+     * @public 
+     */
   createTask(task){
     let newTask ={};
     newTask.createdDate = get(task,'createdDate');
@@ -85,6 +118,14 @@ export default Ember.Service.extend({
       task: tasksPromise()
     });
   },
+
+  /**
+     * This is used to mark the create new history
+     * @method createHistory
+     * @param {history} _history 
+     * @returns {history}
+     * @public 
+     */
   createHistory(_history){
     let that =this;
     let newHistory ={};
