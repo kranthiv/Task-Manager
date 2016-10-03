@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const {get, observer, computed, set} = Ember;
+const {get,set} = Ember;
 
 export default Ember.Route.extend({
   dataService: Ember.inject.service(),

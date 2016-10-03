@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
                     get(that,'dataService').createHistory(_history).then(()=>{
                         that.transitionToRoute('task');
                     });
-                })
+                });
             }
         }
     }

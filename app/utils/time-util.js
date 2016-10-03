@@ -19,14 +19,20 @@ export default {
         return obj;
     },
     getTodayDate(){
+        /*ignore jslint start*/
         return moment().format('MM-DD-YYYY');
+        /*ignore jslint end*/
     },
     getTasksBetweenDates(tasks){
+        /*ignore jslint start*/
         let currDate = this.getTodayDate();
         let weekBackdate = moment().subtract(7,'days').format('MM-DD-YYYY');
+        /*ignore jslint end*/
         return tasks.filter((item)=>{
+            /*ignore jslint start*/
           return moment(get(item,'createdDate'),'MM-DD-YYYY').isBetween(weekBackdate,currDate,null, '[]');
+          /*ignore jslint end*/
         });
     }
 
-}
+};

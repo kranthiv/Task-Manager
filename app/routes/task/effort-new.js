@@ -10,7 +10,6 @@ export default Ember.Route.extend({
         return _history;
     },
     setupController(controller, model) {
-        Ember.Logger.info("task with id",model);
         controller.set('model', model);
   }
 });

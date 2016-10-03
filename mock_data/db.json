@@ -4,47 +4,54 @@
       "id": 1,
       "title": "task one",
       "createdDate": "10-01-2016",
-      "isCompleted": false,
-      "history": [
-        {
-          "id": 1,
-          "comment": "inital task",
-          "duration": {
-            "hours": 2,
-            "minutes": 35
-          },
-          "createdDate": "09-01-2016",
-          "modifiedDate": null
-        }
-      ]
+      "isCompleted": true
     },
     {
       "id": 2,
       "title": "task two",
-      "createdDate": "09-01-2016",
+      "createdDate": "10-01-2016",
+      "isCompleted": true
+    },
+    {
+      "createdDate": "10-03-2016",
+      "title": "task four",
       "isCompleted": true,
-      "history": [
-        {
-          "id": 1,
-          "comment": "inital task",
-          "duration": {
-            "hours": 2,
-            "minutes": 35
-          },
-          "createdDate": "09-01-2016",
-          "modifiedDate": null
-        },
-        {
-          "id": 2,
-          "comment": "second update",
-          "duration": {
-            "hours": 0,
-            "minutes": 30
-          },
-          "createdDate": "10-02-2016",
-          "modifiedDate": null
-        }
-      ]
+      "id": 3
+    },
+    {
+      "createdDate": "10-01-2016",
+      "title": "task four",
+      "isCompleted": true,
+      "id": 4
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "comment": "inital task",
+      "taskId": 1,
+      "hours": 2,
+      "minutes": 35,
+      "createdDate": "09-01-2016",
+      "modifiedDate": null
+    },
+    {
+      "id": 2,
+      "comment": "inital task",
+      "taskId": 2,
+      "hours": 2,
+      "minutes": 35,
+      "createdDate": "09-01-2016",
+      "modifiedDate": null
+    },
+    {
+      "id": 3,
+      "comment": "third task",
+      "taskId": 3,
+      "hours": 2,
+      "minutes": 35,
+      "createdDate": "09-01-2016",
+      "modifiedDate": null
     }
   ]
 }

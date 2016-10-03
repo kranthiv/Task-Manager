@@ -12,7 +12,7 @@ export default Ember.Service.extend({
   init() {
     this._super(...arguments);
     set(this, 'url', "http://localhost:3000/tasks");
-    set(this,'historyUrl',"http://localhost:3000/history")
+    set(this,'historyUrl',"http://localhost:3000/history");
   },
   getTasks() {
     let that = this;
@@ -37,11 +37,11 @@ export default Ember.Service.extend({
       return Ember.$.ajax(`${get(that,'url')}/${id}/history`).then((data) => {
         return taskUtils.convertHistoryToModel(data);
       });
-    }
+    };
     let promiseToResolve = {
       task:taskPromise(),
       history:historyPromise()
-    }
+    };
     return RSVP.hash(promiseToResolve).then((data)=>{
       data.task.set('history',data.history);
       return data.task;

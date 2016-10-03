@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import timeUtil from 'task-manager/utils/time-util';
-const{get,set,computed}=Ember;
+const{get,computed}=Ember;
 
 export default Ember.Object.extend({
     id:null,
