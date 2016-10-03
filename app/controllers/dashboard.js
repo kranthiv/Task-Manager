@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import effortPerDay from '../models/effort-per-day'
+import effortPerDay from '../models/effort-per-day';
 const{get,computed:{alias},computed,set} =Ember;
 export default Ember.Controller.extend({
     countOfPendingTasks:computed('tasks.[]',function(){
@@ -11,9 +11,10 @@ export default Ember.Controller.extend({
     countOfTasks:alias('tasks.length'),
     sizeOfStatics:computed('effortsPerWeek',function(){
         let style;
-        if(Ember.isNone(get(this,'effortsPerWeek')))
-            return '';
-        if(get(this,"effortsPerWeek").length>0 && get(this,"effortsPerWeek").length < 4){
+        if(Ember.isNone(get(this,'effortsPerWeek'))){
+            style= '';
+        }
+        else if(get(this,"effortsPerWeek").length>0 && get(this,"effortsPerWeek").length < 4){
         style= "small";
         }else{
             style= "tiny";
